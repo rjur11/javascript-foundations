@@ -3,14 +3,20 @@ class TrickOrTreater {
     this.dressedUpAs = costume.style;
     this.bag = bag;
     this.hasCandy = false;
-    this.countCandies = bag.count;
+    this.countCandies = 0;
   }
   putCandyInBag(candy) {
     this.hasCandy = true;
-    this.bag.candies += 1;
+    this.bag.fill(candy);
+    this.countCandies += 1;
   }
   eat() {
-    bag.count -= 1;
+    if (this.countCandies) {
+      this.countCandies -= 1;
+      this.bag.candies.pop();
+    } else {
+      this.hasCandy = false;
+    }
   }
 }
 
