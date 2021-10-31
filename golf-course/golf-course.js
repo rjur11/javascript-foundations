@@ -8,10 +8,14 @@ class GolfCourse {
   }
 
   checkInGroup(group) {
-    this.openings -= group.length;
-    for (var i = group.length - 1; i >= 0; i--) {
-      this.currentlyPlaying.push(group[i].name);
+    if (this.openings < group.length) {
+      return "Sorry, we are currently booked! Please come back later.";
     }
+    this.openings -= group.length;
+    for (var i = 0; i < group.length; i++) {
+      this.currentlyPlaying.unshift(group[i].name);
+    }
+    return "You're checked in. Have fun!";
   }
 }
 
