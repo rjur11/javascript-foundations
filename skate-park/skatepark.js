@@ -5,7 +5,8 @@ class SkatePark {
     this.style = typeObj.type;
     this.features = typeObj.features;
     this.isPrivate = typeObj.isPrivate || false;
-    this.price = typeObj.price;
+    this.cost = typeObj.price || 0;
+    this.occupants = [];
   }
 }
 
